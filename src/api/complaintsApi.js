@@ -1,7 +1,10 @@
 import axios from 'axios'
 import { parseComplaintText, looksLikeFullIntake } from '../utils/complaintParser'
 
-const client = axios.create({ baseURL: '/api', timeout: 20000 })
+const client = axios.create({ baseURL: '/api', timeout: 20000 })const client = axios.create({
+  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
+  timeout: 20000,
+})
 
 // Set to false once the FastAPI + LangGraph backend is running and reachable.
 const USE_MOCK_FALLBACK = false
